@@ -27,15 +27,18 @@ The purpose of our pipeline is to find unique sequences for diagnostic use. Alth
 
 NAUniSeq pipeline is designed to use complete genome and protein data from NCBI Refseq FTP server as non-target and target microorganism to find unique sequences in target. The principle of NAUniSeq pipeline can be divided into 3 main stages: Data download from NCBI Refseq FTP server, creation of downloaded sequences collection in MongoDB and K-mer operation that includes 1. generation of target and non-target K-mers 2. cross referencing of the K-mers 3. storage of unique K-mers in MongoDB 
 In the first stage we have downloaded data from NCBI refseq FTP serever. To download data from RefSeq database a schema was designed. 
-#### Assembly Dataframe 
+* **Assembly Dataframe**
+
 ![Assembly Dataframe](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/images/Assembly.png)
 
 From this refseq assembly file we have extracted columns that have FTP links (https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/905/GCF_000001905.1_Loxafr3.0/). We have split this link and taken the last index string and added /genomic.fna.gz for genomes and /_protein.faa.gz for proteins to all the FTP links and downloaded them to our local system as a text file.
-#### Ftp Links
+* **Ftp Links**
+
 ![Ftp links](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/images/links.png)
  
 In the second stage downloaded genome and protein sequeneces were added to the MongoDB documents. We have designed five key value pair data schemas of MongoDB collection. A schema is a JSON object that defines the structure and contents of our data. First key was the node which was the tax-id column (data type: integer), second key was accession number, third was FTP link, fourth was file path which was the local file system path of genomic files and fifth key was assembly level. After that we have added the local system file path to every specific sequence file. MongoDB also gives us 24 characters unique id, which is usually auto generated. 
-* MongoDB Collection
+* **MongoDB Collection**
+```
 {
 
     "*_id": "objectId",
@@ -45,15 +48,16 @@ In the second stage downloaded genome and protein sequeneces were added to the M
     "file _path":  "string" ,
     "ftp_link": "string" 
 }
-
+```
 *Auto generated unique id,12 bytes and 24 in length
-#### Genomic Collection
+* **Genomic Collection**
+
 ![MongoDb collection](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/images/mongodb.png)
 
 In the third step we ran a K-mer operation to check whether the non-target kmers are present in target K-mers or not. A genome and protein of size N were fragmented into N-K+1 fragments. In this function target and non-target K-mers were cross-referenced, target K-mers present in non-target collections were removed. If the non-target k-mers were present in target K-mer we excluded those K-mers. Now at the same time we checked the old length of the target K-mer text file with the current length. If the current seedmer length was not equal to the old length of seedmer then we deleted the old seedmer file and we have dumped the new seedmer object to seedmer.json file. These target unique sequences were stored in MongoDB unique sequence collection. 
 For unique nucleotide K-mers NCBI-blast was run to get only strain specific fragments. For amino acid K-mers, complete protein sequences of unique length fragments were further run in the protein plasma membrane prediction tools and K-mers predicted to be in the plasma membrane were selected. These K-mers were further checked for their antigenic potential.
-#### K-mer strategies
-##### Nuclotide Kmer
+* **K-mer strategies**
+##### **Nuclotide Kmer**
 ![ DNA kmer ](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/images/Dna%20Kmer.jpg)
 ##### Amino Acid Kmer
 ![Amino acid kmer](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/images/Peptide%20Kmer.jpg)
@@ -66,9 +70,9 @@ For the present study we have used a desktop system with configurations: Intel c
 
 ### Authors
 
-- [Dr. Vandana Nunia]
+- Dr. Vandana Nunia
 - [@Gulshan-gaur](https://www.github.com/Gulshan-gaur)
-- [@Rakesh Sharma]
+- Rakesh Sharma
 
 
 ### Licence
@@ -76,4 +80,4 @@ For the present study we have used a desktop system with configurations: Intel c
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 #### We Build The Future❤️
-[![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
+![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)
