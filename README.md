@@ -67,6 +67,52 @@ For unique nucleotide K-mers NCBI-blast was run to get only strain specific frag
 For the present study we have used a desktop system with configurations: Intel core i7 10700K, PCI Graphics Card RTX 1660 and RAM 16 GBx2. Aim of the present invention was to provide a pipeline named NAUniSeq, implemented in the Python 3.7 programming language and ran on the Linux or Unix command line. Ubuntu 20.04, MongoDB 5.0.6 and VS Code 1.67.2 versions were used in the development of this pipeline. 
 
 ### Repository Contents
+# Phylogeny Analysis Code Repository
+
+This repository contains code for analyzing phylogenetic data using a combination of network analysis, seedmer creation, and unique sequence generation. The code is implemented in Python and utilizes various libraries for data processing and analysis.
+
+## Repository Structure
+
+- `no_sql_method.py`: This script implements the NoSQL approach for phylogeny analysis using MongoDB as the database. It connects to the MongoDB server, retrieves taxonomic and genomic data, and performs the necessary steps for seedmer creation and unique sequence generation.
+
+- `operationKmer.py`: This module provides functions related to k-mer operations, such as creating seedmers and generating unique sequences.
+
+- `phylogenyTree.py`: This module defines the PhylogenyTree class, which represents the phylogenetic tree and provides methods for accessing taxonomic and genomic data.
+
+- `phylogenyUniqueSequence.py`: This script implements the phylogeny analysis using the PhylogenyTree class. It creates the phylogenetic tree, performs seedmer creation and unique sequence generation for target and non-target taxa, and displays the unique k-mers.
+
+- `seedmer.py`: This module defines the seedmer dictionary, which stores k-mers and their associated information.
+
+- `seedmerCreation.py`: This module contains the function for creating seedmers from genomic files using a sliding window technique.
+
+- `README.md`: This file provides an overview of the code repository, its structure, and usage instructions.
+
+## Usage
+
+To perform phylogeny analysis using the NoSQL approach:
+
+1. Ensure that you have MongoDB installed and running on your system.
+
+2. Update the MongoDB URI in the `no_sql_method.py` script to match your MongoDB configuration.
+
+3. Provide the appropriate file paths or database collection names in the script files, such as `taxadb_csv`, `refseq_csv`, or collection names in the MongoDB database.
+
+4. Run the `phylogenyUniqueSequence.py` script to execute the phylogeny analysis. Adjust the `taxid` and `k` values as needed.
+
+5. The script will connect to the MongoDB database, retrieve the necessary data, perform seedmer creation and unique sequence generation, and display the unique k-mers.
+
+Please refer to the individual script files for more detailed comments and explanations of the code.
+
+## Dependencies
+
+The code in this repository relies on the following Python libraries:
+
+- `pymongo`: For interacting with MongoDB databases.
+- Other standard libraries: `networkx`, `gzip`, `Bio`, `pandas`, etc. (mentioned dependencies based on previous conversations)
+
+Make sure to install these dependencies before running the scripts.
+
+Feel free to modify and adapt the code according to your specific requirements.
 
 ### Authors
 
@@ -81,3 +127,5 @@ For the present study we have used a desktop system with configurations: Intel c
 
 #### We Build The Future❤️
 ![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)
+
+Please let me know if you need any further assistance!
