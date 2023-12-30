@@ -3,6 +3,7 @@ from phylogenyTree import PhylogenyTree
 from seedmerCreation import create_seedmer
 from seedmer import seedmer
 from operationKmer import create_unique_sequences
+from countuniqueSeedmer import count_unique_sequences
 
 class Phylogeny:
     def __init__(self, taxadb_csv, refseq_csv):
@@ -43,3 +44,6 @@ if __name__ == "__main__":
 
     sequences = Phylogeny(taxadb_csv, refseq_csv)
     sequences.uniqueSequence(taxid, k)
+    unique_count = count_unique_sequences(seedmer)
+    print("Number of unique sequences:", unique_count)
+
