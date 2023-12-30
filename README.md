@@ -85,6 +85,10 @@ This repository contains code for analyzing phylogenetic data using a combinatio
 
 - `seedmerCreation.py`: This module contains the function for creating seedmers from genomic files using a sliding window technique.
 
+- `countuniqueSeedmer.py` : This module can count the unique sequence that are ovarlapped.
+
+- `qblast.py` : Performing for blastp and blastn 
+
 - `README.md`: This file provides an overview of the code repository, its structure, and usage instructions.
 
 ## Usage
