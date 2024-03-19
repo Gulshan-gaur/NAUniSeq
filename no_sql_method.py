@@ -15,7 +15,7 @@ class NoSql:
         for filename in filenames:
             create_seedmer(filename, k)
 
-    def create_unique_sequences(self, filenames, k):
+    def find_unique_sequences(self, filenames, k):
         for filename in filenames:
             create_unique_sequences(filename, k, seedmer)
 
@@ -28,7 +28,7 @@ class NoSql:
 
         # Create unique sequences for non-target filenames
         non_target_filenames = db['genomic'].find({'taxid': {'$ne': taxid}}, {'filename': 1})
-        self.create_unique_sequences(non_target_filenames, k)
+        self.find_unique_sequences(non_target_filenames, k)
 
         print("Unique k-mers in seedmer:", seedmer)
 
