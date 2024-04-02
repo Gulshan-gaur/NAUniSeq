@@ -1,0 +1,4 @@
+python main.py no_sql --mongodb-uri 'mongodb://localhost:27017/'
+python main.py phylogeny --taxadb-csv 'taxadb.csv' --refseq-csv 'refseq.csv' --taxid 83332 --k 100
+docker run --rm my-command-line-tool no_sql --mongodb-uri <mongodb_uri> --taxid <taxid>
+
