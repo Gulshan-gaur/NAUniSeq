@@ -34,18 +34,3 @@ class Phylogeny:
 
         # Step 5: Print the remaining k-mers in the seedmer dictionary
         print("Unique k-mers in seedmer:", seedmer)
-
-@click.command()
-@click.option('--taxadb-csv', default='taxadb.csv', help='Path to the taxadb CSV file')
-@click.option('--refseq-csv', default='refseq.csv', help='Path to the refseq CSV file')
-@click.option('--taxid', type=int, help='Taxonomy ID')
-@click.option('--k', type=int, default=100, help='Length of k-mer')
-def main(taxadb_csv, refseq_csv, taxid, k):
-    """Perform phylogeny analysis and count unique sequences."""
-    sequences = Phylogeny(taxadb_csv, refseq_csv)
-    sequences.uniqueSequence(taxid, k)
-    unique_count = count_unique_sequences(seedmer)
-    print("Number of unique sequences:", unique_count)
-
-if __name__ == "__main__":
-    main()
