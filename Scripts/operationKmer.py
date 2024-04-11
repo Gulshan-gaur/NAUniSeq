@@ -2,9 +2,10 @@ import gzip,os
 from Bio import SeqIO
 from .seedmer_data import seedmer
 
+path = 'test_data'
 def create_unique_sequences(filename, k):
-    file_path = '/mnt/drive/refesq/'
-    with gzip.open(os.join_path(file_path,filename), 'rt') as f:
+    file_path = os.join_path(file_path,filename)
+    with gzip.open(file_path, 'rt') as f:
         for record in SeqIO.parse(f, 'fasta'):
             sequence = str(record.seq)
                 # Sliding window technique

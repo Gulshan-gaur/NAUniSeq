@@ -1,9 +1,13 @@
-import gzip
+import gzip,os
 from Bio import SeqIO
 from .seedmer_data import seedmer
 
+
+path = 'test_data'
+
 def create_seedmer(filename, k):
-    with gzip.open(filename, "rt") as file:
+    file_path = os.join.path(path,filename)
+    with gzip.open(file_path, "rt") as file:
         for record in SeqIO.parse(file, "fasta"):
             sequence = str(record.seq)
             seq_len = len(sequence)

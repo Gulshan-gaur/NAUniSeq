@@ -71,26 +71,6 @@ For the present study we have used a desktop system with configurations: Intel c
 
 This repository contains code for analyzing phylogenetic data using a combination of network analysis, seedmer creation, and unique sequence generation. The code is implemented in Python and utilizes various libraries for data processing and analysis.
 
-## Repository Structure
-
-- `no_sql_method.py`: This script implements the NoSQL approach for phylogeny analysis using MongoDB as the database. It connects to the MongoDB server, retrieves taxonomic and genomic data, and performs the necessary steps for seedmer creation and unique sequence generation.
-
-- `operationKmer.py`: This module provides functions related to k-mer operations, such as creating seedmers and generating unique sequences.
-
-- `phylogenyTree.py`: This module defines the PhylogenyTree class, which represents the phylogenetic tree and provides methods for accessing taxonomic and genomic data.
-
-- `phylogenyUniqueSequence.py`: This script implements the phylogeny analysis using the PhylogenyTree class. It creates the phylogenetic tree, performs seedmer creation and unique sequence generation for target and non-target taxa, and displays the unique k-mers.
-
-- `seedmer.py`: This module defines the seedmer dictionary, which stores k-mers and their associated information.
-
-- `seedmerCreation.py`: This module contains the function for creating seedmers from genomic files using a sliding window technique.
-
-- `countuniqueSeedmer.py` : This module can count the unique sequence that are ovarlapped.
-
-- `qblast.py` : Performing for blastp and blastn 
-
-- `README.md`: This file provides an overview of the code repository, its structure, and usage instructions.
-
 ## Usage
 
 To perform phylogeny analysis using the NoSQL approach:
@@ -117,6 +97,27 @@ The code in this repository relies on the following Python libraries:
 Make sure to install these dependencies before running the scripts.
 
 Feel free to modify and adapt the code according to your specific requirements.
+
+## Repository Structure
+
+- `no_sql_method.py`: This script implements the NoSQL approach for phylogeny analysis using MongoDB as the database. It connects to the MongoDB server, retrieves taxonomic and genomic data, and performs the necessary steps for seedmer creation and unique sequence generation.
+
+- `operationKmer.py`: This module provides functions related to k-mer operations, such as creating seedmers and generating unique sequences.
+
+- `phylogenyTree.py`: This module defines the PhylogenyTree class, which represents the phylogenetic tree and provides methods for accessing taxonomic and genomic data.
+
+- `phylogenyUniqueSequence.py`: This script implements the phylogeny analysis using the PhylogenyTree class. It creates the phylogenetic tree, performs seedmer creation and unique sequence generation for target and non-target taxa, and displays the unique k-mers.
+
+- `seedmer.py`: This module defines the seedmer dictionary, which stores k-mers and their associated information.
+
+- `seedmerCreation.py`: This module contains the function for creating seedmers from genomic files using a sliding window technique.
+
+- `countuniqueSeedmer.py` : This module can count the unique sequence that are ovarlapped.
+
+- `qblast.py` : Performing for blastp and blastn 
+
+- `README.md`: This file provides an overview of the code repository, its structure, and usage instructions.
+
 
 ### Authors
 
