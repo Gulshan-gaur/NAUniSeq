@@ -65,7 +65,7 @@ For test data you need to clone this repo and use the test data
 
 - taxadb.csv: CSV file containing taxonomy data.
 - refseq.csv: CSV file containing reference sequence data.
-- url_test.txt: Text file containing FTP links for genome and proteome sequences of Neisseria Gonorrhea. Use the provided parallel command to download the multiple files. ***(This is only works in Ubuntu)***
+- ng_url.txt: Text file containing FTP links for genome and proteome sequences of Neisseria Gonorrhea. Use the provided parallel command to download the multiple files. ***(This is only works in Ubuntu)***
 ```
 parallel -j ${jobs} wget < ng_url.txt
 ```
