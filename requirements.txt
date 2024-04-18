@@ -1,5 +1,4 @@
 bio
 click
-gzip
-netwrokx
+networkx
 pymongo

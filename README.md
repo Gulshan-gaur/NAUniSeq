@@ -1,5 +1,5 @@
 
-[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/)  ![](https://img.shields.io/bower/v/editor.md.svg) [![Linux](https://svgshare.com/i/Zhy.svg)](https://svgshare.com/i/Zhy.svg) [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/) [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) [![GitHub watchers](https://img.shields.io/github/watchers/Naereen/StrapDown.js.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/Naereen/StrapDown.js/watchers/)
+[![GitHub release](https://img.shields.io/github/release/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/)  ![](https://img.shields.io/bower/v/editor.md.svg) [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/) [![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://GitHub.com/Naereen/StrapDown.js/releases/) [![GitHub watchers](https://img.shields.io/github/watchers/Naereen/StrapDown.js.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/Naereen/StrapDown.js/watchers/)
 [![git](https://badgen.net/badge/icon/git?icon=git&label)](https://git-scm.com) [![Visual Studio Code](https://img.shields.io/badge/--007ACC?logo=visual%20studio%20code&logoColor=ffffff)](https://code.visualstudio.com/) [![PyPi](https://badgen.net/badge/icon/pypi?icon=pypi&label)](https://https://pypi.org/)
 
    
@@ -50,13 +50,13 @@ docker pull nauniseq
 To run the NoSQL method, execute the following command:
 Please refer to the individual script files for more detailed comments and explanations of the code.
 ```
-docker run --rm nauniseq no_sql --mongodb-uri <mongodb-uri> --taxid <taxid>
+docker run --rm nauniseq python main.py no-sql --mongodb-uri <mongodb-uri> --taxid <taxid> --k <k>
 
 ```
 #### 3. Phylogeny Analysis
 To run the phylogeny analysis method, execute the following command:
 ```
-docker run --rm nauniseq phylogeny --taxadb-csv 'taxadb.csv' --refseq-csv 'refseq.csv' --taxid <taxid> --k <k>
+docker run --rm nauniseq python main.py phylogeny --taxadb-csv 'taxadb.csv' --refseq-csv 'refseq.csv' --taxid <taxid> --k <k>
 ```
 Replace <taxid> with the taxonomy ID and <k> with the desired length of k-mer.
 
