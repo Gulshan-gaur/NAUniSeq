@@ -44,7 +44,7 @@ Make sure you have Docker installed on your system. You can download and install
 #### 1. Pull the Docker Image
 
 ```
-docker pull nauniseq
+docker pull gaurgulshan/nauniseq:latest
 ```
 #### 2. NoSQL Method
 To run the NoSQL method, execute the following command:
