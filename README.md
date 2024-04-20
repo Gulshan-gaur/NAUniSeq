@@ -46,14 +46,18 @@ Make sure you have Docker installed on your system. You can download and install
 ```
 docker pull gaurgulshan/nauniseq:latest
 ```
-#### 2. NoSQL Method
+#### 2. Tag the image with just the repository name: 
+```
+docker tag gaurgulshan/nauniseq:latest nauniseq:latest
+```
+#### 3. NoSQL Method
 To run the NoSQL method, execute the following command:
 Please refer to the individual script files for more detailed comments and explanations of the code.
 ```
 docker run --rm nauniseq python main.py no-sql --mongodb-uri <mongodb-uri> --taxid <taxid> --k <k>
 
 ```
-#### 3. Phylogeny Analysis
+#### 4. Phylogeny Analysis
 To run the phylogeny analysis method, execute the following command:
 ```
 docker run --rm nauniseq python main.py phylogeny --taxadb-csv 'taxadb.csv' --refseq-csv 'refseq.csv' --taxid <taxid> --k <k>
@@ -65,7 +69,7 @@ For test data you need to clone this repo and use the test data
 
 - taxadb.csv: CSV file containing taxonomy data.
 - refseq.csv: CSV file containing reference sequence data.
-- ng_url.txt: Text file containing FTP links for genome and proteome sequences of Neisseria Gonorrhea. Use the provided parallel command to download the multiple files. ***(This is only works in Ubuntu)***
+- ng_url.txt: Text file containing FTP links for genome and proteome sequences of Neisseria Gonorrhea. Use the provided parallel command to download the multiple files and this command has to run in test_data folder. ***(This is only works in Ubuntu)***
 ```
 parallel -j ${jobs} wget < ng_url.txt
 ```
