@@ -53,6 +53,11 @@ docker tag gaurgulshan/nauniseq:latest nauniseq:latest
 #### 3. NoSQL Method
 To run the NoSQL method, execute the following command:
 Please refer to the individual script files for more detailed comments and explanations of the code.
+"Need to change this "
+```
+docker run -v /path/to/local/directory:/path/in/container your_docker_image
+
+```
 ```
 docker run --rm nauniseq python main.py no-sql --mongodb-uri <mongodb-uri> --taxid <taxid> --k <k>
 
