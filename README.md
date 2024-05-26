@@ -80,7 +80,6 @@ docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py no-sql
 #### 4. Phylogeny Analysis
 To run the phylogeny analysis method, execute the following command:
 ```
-```
 docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py phylogeny --taxadb-csv 'taxa_db.csv' --refseq-csv 'refseq.csv' --taxid 485 --k 100
 
 ```
