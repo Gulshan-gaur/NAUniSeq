@@ -12,7 +12,7 @@ class NoSql:
         client = MongoClient(self.mongodb_uri)
         return client[database_name]
 
-    def create_seedmer(self, filenames, k):
+    def create_seedmer_SQl(self, filenames, k):
         for filename in filenames:
             create_seedmer(filename, k)
 
@@ -25,7 +25,7 @@ class NoSql:
 
         # Create seedmer for target filenames
         target_filenames = db['genomic'].find({'taxid': taxid}, {'filename': 1})
-        self.create_seedmer(target_filenames, k)
+        self.create_seedmer_SQl(target_filenames, k)
 
         # Create unique sequences for non-target filenames
         non_target_filenames = db['genomic'].find({'taxid': {'$ne': taxid}}, {'filename': 1})

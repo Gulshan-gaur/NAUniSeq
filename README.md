@@ -35,6 +35,26 @@ This repository contains code for analyzing phylogenetic data using a combinatio
 
 ## Usage
 
+### Clone this repo
+```
+git clone https://github.com/Gulshan-gaur/NAUniSeq.git 
+```
+
+### Use cd to naviagte to the test_data folder from where you have cloned the repo
+```
+cd $(pwd)/NAUniSeq/test_data
+```
+### Test Data
+In test_data folder
+
+- taxadb.csv: CSV file containing taxonomy data.
+- refseq.csv: CSV file containing reference sequence data.
+- ng_url.txt: Text file containing FTP links for genome sequences of Neisseria Gonorrhea. 
+Use the provided parallel command to download the multiple files and this command has to run in test_data folder. ***(This is only works in Ubuntu)***
+```
+parallel -j 4 wget < ng_url.txt
+```
+##### 4 is number of process you can choose acc. to your need.
 ### Docker Installation
 
 Make sure you have Docker installed on your system. You can download and install Docker from [Docker's official website](https://www.docker.com/get-started).
@@ -53,31 +73,18 @@ docker tag gaurgulshan/nauniseq:latest nauniseq:latest
 #### 3. NoSQL Method
 To run the NoSQL method, execute the following command:
 Please refer to the individual script files for more detailed comments and explanations of the code.
-"Need to change this "
 ```
-docker run -v /path/to/local/directory:/path/in/container your_docker_image
-
-```
-```
-docker run --rm nauniseq python main.py no-sql --mongodb-uri <mongodb-uri> --taxid <taxid> --k <k>
+docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py no-sql --mongodb-uri <mongodb-uri> --taxid <taxid> --k <k>
 
 ```
 #### 4. Phylogeny Analysis
 To run the phylogeny analysis method, execute the following command:
 ```
-docker run --rm nauniseq python main.py phylogeny --taxadb-csv 'taxadb.csv' --refseq-csv 'refseq.csv' --taxid <taxid> --k <k>
 ```
-Replace <taxid> with the taxonomy ID and <k> with the desired length of k-mer.
+docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py phylogeny --taxadb-csv 'taxa_db.csv' --refseq-csv 'refseq.csv' --taxid 485 --k 100
 
-### Test Data
-For test data you need to clone this repo and use the test data
+```
 
-- taxadb.csv: CSV file containing taxonomy data.
-- refseq.csv: CSV file containing reference sequence data.
-- ng_url.txt: Text file containing FTP links for genome and proteome sequences of Neisseria Gonorrhea. Use the provided parallel command to download the multiple files and this command has to run in test_data folder. ***(This is only works in Ubuntu)***
-```
-parallel -j ${jobs} wget < ng_url.txt
-```
 
 ## Repository Structure
 

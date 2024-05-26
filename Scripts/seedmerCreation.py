@@ -3,10 +3,10 @@ from Bio import SeqIO
 from .seedmer_data import seedmer
 
 
-path = 'test_data'
+path = '/app/test_data'
 
 def create_seedmer(filename, k):
-    file_path = os.join.path(path,filename)
+    file_path = os.path.join(path,filename)
     with gzip.open(file_path, "rt") as file:
         for record in SeqIO.parse(file, "fasta"):
             sequence = str(record.seq)

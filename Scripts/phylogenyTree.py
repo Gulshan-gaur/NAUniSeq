@@ -1,5 +1,6 @@
 import pandas as pd
 import networkx as nx
+import os
 
 class PhylogenyTree:
     def __init__(self, taxadb_csv, refseq_csv):
@@ -20,22 +21,21 @@ class PhylogenyTree:
         # Add nodes to the graph
         for _, row in taxadb_df.iterrows():
             taxid = row['taxid']
-            parent_id = row['parent_id']
+            parent_id = row['parent_taxid']
             
             # Get the filenames for the current taxid
-            filenames = refseq_df[refseq_df['taxid'] == taxid]['filename'].tolist()
+            filenames = refseq_df[refseq_df['taxid'] == taxid]['link'].apply(os.path.basename).tolist()
 
             # Create a dictionary of attributes for the node
             attributes = {
                 'filenames': filenames,
-                'accession_numbers': refseq_df[refseq_df['taxid'] == taxid]['accession_number'].tolist(),
-                'ftp_links': refseq_df[refseq_df['taxid'] == taxid]['ftp_link'].tolist(),
+                'ftp_links': refseq_df[refseq_df['taxid'] == taxid]['ftp_path'].tolist(),
                 'assembly_levels': refseq_df[refseq_df['taxid'] == taxid]['assembly_level'].tolist()
             }
 
             graph.add_node(taxid, **attributes)
             graph.add_edge(parent_id, taxid)
-
+        
         # Return the phylogenetic graph
         return graph
 

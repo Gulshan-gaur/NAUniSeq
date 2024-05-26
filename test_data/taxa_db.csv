@@ -1,4 +1,4 @@
-ncbi_taxid,parent_taxid,tax_name,lineage_level
+taxid,parent_taxid,tax_name,lineage_level
 485,482,Neisseria gonorrhoeae,species
 120575,485,Neisseria gonorrhoeae subsp. kochii,subspecies
 242231,485,Neisseria gonorrhoeae FA 1090,strain

@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+COPY test_data /app/test_data
+
 RUN pip install --upgrade pip
 
 # Install any needed dependencies specified in requirements.txt
