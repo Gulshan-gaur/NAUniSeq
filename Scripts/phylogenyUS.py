@@ -23,9 +23,10 @@ class Phylogeny:
             create_seedmer(filename, k)
 
         # Step 3: Perform DFS traversal on the graph
-        dfs_order = list(nx.dfs_preorder_nodes(G))
+        dfs_order = list(nx.dfs_preorder_nodes(G.graph))
         dfs_order.remove(taxid)  # Exclude the target taxid
         print('Perform DFS')
+        print("******************************")
         # Step 4: Iterate over filenames in DFS order and create unique sequences
         for node_id in dfs_order:
             filenames = G.get_filenames(node_id)
