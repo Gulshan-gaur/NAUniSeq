@@ -2,3 +2,4 @@ bio
 click
 networkx
 pymongo
+pandas
