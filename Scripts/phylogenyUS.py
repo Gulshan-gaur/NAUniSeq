@@ -30,7 +30,8 @@ class Phylogeny:
         # Step 4: Iterate over filenames in DFS order and create unique sequences
         for node_id in dfs_order:
             filenames = G.get_filenames(node_id)
-
+            if not filenames:
+                continue
             # Call create_unique_sequences for each filename
             for filename in filenames:
                 create_unique_sequences(filename, k, seedmer)

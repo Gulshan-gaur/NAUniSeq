@@ -27,7 +27,6 @@ def insert_refseq_data(csv_file, mongodb_uri, db_name, collection_name):
             'assembly_level': row['assembly_level']
         }
         collection.insert_one(entry)
-        print(f"Inserted document for taxid: {row['taxid']}")
 
     print(f"Inserted {len(df)} records into {db_name}.{collection_name}")
 

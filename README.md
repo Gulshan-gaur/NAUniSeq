@@ -56,6 +56,17 @@ parallel -j 4 wget < ng_url.txt
 cd ..
 ```
 ##### 4 is number of process you can choose acc. to your need.
+
+### Add data to mongoDb database
+Make sure you have MongoDb installed on your system.
+```
+#install the pymongo and pandas with pip
+!pip install pymongo pandas
+```
+Run the insert_refseq_to_mongodb.py to add refseq data to your local instance of mongodb
+```
+python insert_refseq_to_mongodb.py
+```
 ### Docker Installation
 
 Make sure you have Docker installed on your system. You can download and install Docker from [Docker's official website](https://www.docker.com/get-started).
@@ -75,7 +86,7 @@ docker tag gaurgulshan/nauniseq:latest nauniseq:latest
 To run the NoSQL method, execute the following command:
 Please refer to the individual script files for more detailed comments and explanations of the code.
 ```
-docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py no-sql --mongodb-uri <mongodb-uri> --taxid <taxid> --k <k>
+docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py no-sql --mongodb-uri 'mongodb://localhost:27017/' --taxid 485 --k 100
 
 ```
 #### 4. Phylogeny Analysis
