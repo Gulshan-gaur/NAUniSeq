@@ -53,6 +53,7 @@ In test_data folder
 Use the provided parallel command to download the multiple files and this command has to run in test_data folder. ***(This is only works in Ubuntu)***
 ```
 parallel -j 4 wget < ng_url.txt
+cd ..
 ```
 ##### 4 is number of process you can choose acc. to your need.
 ### Docker Installation
