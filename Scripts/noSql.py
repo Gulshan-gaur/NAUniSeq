@@ -18,15 +18,18 @@ class NoSql:
 
     def unique_sequences(self, filenames, k):
         for filename in filenames:
+            print("processing the f{filename}")
             create_unique_sequences(filename, k, seedmer)
 
     def uniqueSequence(self, taxid, k):
         db = self.connect_to_database('refseq')
-
+        print('*********************************')        
+        print("Database Connected")
         # Create seedmer for target filenames
         target_filenames = db['genomic'].find({'taxid': taxid}, {'filename': 1})
         self.create_seedmer_SQl(target_filenames, k)
-
+        print('*********************************')        
+        print("Seedmer is craeted")
         # Create unique sequences for non-target filenames
         non_target_filenames = db['genomic'].find({'taxid': {'$ne': taxid}}, {'filename': 1})
         self.unique_sequences(non_target_filenames, k)

@@ -21,7 +21,8 @@ class Phylogeny:
         target_filenames = G.get_filenames(taxid)
         for filename in target_filenames:
             create_seedmer(filename, k)
-
+        print('*********************************')        
+        print("Seedmer is craeted")
         # Step 3: Perform DFS traversal on the graph
         dfs_order = list(nx.dfs_preorder_nodes(G.graph))
         dfs_order.remove(taxid)  # Exclude the target taxid
@@ -34,6 +35,7 @@ class Phylogeny:
                 continue
             # Call create_unique_sequences for each filename
             for filename in filenames:
+                print("processing the f{filename}")
                 create_unique_sequences(filename, k, seedmer)
 
         # Step 5: Print the remaining k-mers in the seedmer dictionary
