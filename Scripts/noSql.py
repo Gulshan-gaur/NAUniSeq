@@ -33,6 +33,6 @@ class NoSql:
         # Create unique sequences for non-target filenames
         non_target_filenames = db['genomic'].find({'taxid': {'$ne': taxid}}, {'filename': 1})
         self.unique_sequences(non_target_filenames, k)
-
-        print("Unique k-mers in seedmer:", seedmer)
+        print('*********************************')
+        print("Unique k-mers in seedmer:", len(seedmer))
 

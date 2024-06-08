@@ -3,17 +3,13 @@ import networkx as nx
 import os
 
 class PhylogenyTree:
-    def __init__(self, taxadb_csv, refseq_csv):
-        self.taxadb_csv = taxadb_csv
-        self.refseq_csv = refseq_csv
-        self.graph = self._create_graph()
         
-    def _create_graph(self):
+    def create_graph(self,taxadb_csv, refseq_csv):
         # Read the taxadb CSV file
-        taxadb_df = pd.read_csv(self.taxadb_csv)
+        taxadb_df = pd.read_csv(taxadb_csv)
 
         # Read the refseq database CSV file
-        refseq_df = pd.read_csv(self.refseq_csv)
+        refseq_df = pd.read_csv(refseq_csv)
 
         # Create an empty graph
         graph = nx.DiGraph()
@@ -39,5 +35,5 @@ class PhylogenyTree:
         # Return the phylogenetic graph
         return graph
 
-    def get_filenames(self, taxid):
-        return self.graph.nodes[taxid]['filenames']
+    def get_filenames(self,graph,taxid):
+        return graph.nodes[taxid]['filenames']

@@ -4,6 +4,8 @@ from .seedmer_data import seedmer
 
 path = '/app/test_data'
 def create_unique_sequences(filename, k):
+    if not len(seedmer):
+        print('seedmer is empty')
     file_path = os.path.join(path,filename)
     with gzip.open(file_path, 'rt') as f:
         for record in SeqIO.parse(f, 'fasta'):
@@ -11,7 +13,6 @@ def create_unique_sequences(filename, k):
                 # Sliding window technique
             for i in range(len(sequence) - k + 1):
                 kmer = sequence[i:i+k]
-                
                 # Check if k-mer is present in seedmer
                 if kmer in seedmer:
                     del seedmer[kmer]
