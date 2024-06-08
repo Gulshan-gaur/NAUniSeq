@@ -35,5 +35,5 @@ class PhylogenyTree:
         # Return the phylogenetic graph
         return graph
 
-    def get_filenames(self,graph,taxid):
-        return graph.nodes[taxid]['filenames']
+    def get_filenames(self,graph,tax_id):
+        return graph.nodes[tax_id]['filenames']
