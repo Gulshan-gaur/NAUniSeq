@@ -17,16 +17,14 @@ class Phylogeny:
         G = PhylogenyTree()
         graph = G.create_graph(self.taxadb_csv, self.refseq_csv)
         print('*********************************')
-        print('Phylogent Tree is Created')
+        print('Phylogeny Tree is Created')
         # Step 2: Create seedmer for target filenames
         target_filenames = G.get_filenames(graph,taxid)
         for filename in target_filenames:
             create_seedmer(filename, k)
-        with open('app/seedmer.txt','w') as json_file:
-            json.dump(seedmer,json_file)
         print('*********************************')        
         print("Seedmer is craeted")
-        print("Total lenght of seedmer : ",len(seedmer))
+        print("Total length of seedmer : ",len(seedmer))
         # Step 3: Perform DFS traversal on the graph
         dfs_order = list(nx.dfs_preorder_nodes(graph))
         dfs_order.remove(taxid)  # Exclude the target taxid
@@ -40,8 +38,5 @@ class Phylogeny:
             # Call create_unique_sequences for each filename
             for filename in filenames:
                 create_unique_sequences(filename, k)
-        os.remove('app/seedmer.txt')
-        with open('app/seedmer.txt','w') as json_file:
-            json.dump(seedmer,json_file)
         # Step 5: Print the remaining k-mers in the seedmer dictionary
         print("Unique k-mers in seedmer:", len(seedmer))
