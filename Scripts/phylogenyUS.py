@@ -19,7 +19,7 @@ class Phylogeny:
         print('*********************************')
         print('Phylogent Tree is Created')
         # Step 2: Create seedmer for target filenames
-        target_filenames = G.get_filenames(taxid)
+        target_filenames = G.get_filenames(graph,taxid)
         for filename in target_filenames:
             create_seedmer(filename, k)
         with open('app/seedmer.txt','w') as json_file:
