@@ -3,7 +3,7 @@ from Bio import SeqIO
 from .seedmer_data import seedmer
 
 
-path = '/app/test_data'
+path = '/app/test_data/'
 
 def create_seedmer(filename, k):
     file_path = os.path.join(path,filename)

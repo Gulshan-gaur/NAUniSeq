@@ -1,4 +1,4 @@
-import click,os,json
+import click,os,json,progressbar
 import networkx as nx
 from .phylogenyTree import PhylogenyTree
 from .seedmerCreation import create_seedmer
@@ -20,23 +20,33 @@ class Phylogeny:
         print('Phylogeny Tree is Created')
         # Step 2: Create seedmer for target filenames
         target_filenames = G.get_filenames(graph,taxid)
-        for filename in target_filenames:
-            create_seedmer(filename, k)
+        target_progress = progressbar.ProgressBar(max_value=len(target_filenames))
         print('*********************************')        
-        print("Seedmer is craeted")
+        print("Creating Seedmer...")
+        for i,filename in enumerate(target_filenames):
+            create_seedmer(filename, k)
+            target_progress.update(i + 1)
+        print('*********************************')        
+        print("Seedmer is created")
         print("Total length of seedmer : ",len(seedmer))
         # Step 3: Perform DFS traversal on the graph
         dfs_order = list(nx.dfs_preorder_nodes(graph))
         dfs_order.remove(taxid)  # Exclude the target taxid
         print('Perform DFS')
         print("******************************")
+        non_target_progress = progressbar.ProgressBar(max_value=len(dfs_order))
+        print("Creating unique sequences...")
+        print('*********************************')
         # Step 4: Iterate over filenames in DFS order and create unique sequences
-        for node_id in dfs_order:
+        for i,node_id in enumerate(dfs_order):
             filenames = G.get_filenames(graph,node_id)
             if not filenames:
                 continue
             # Call create_unique_sequences for each filename
-            for filename in filenames:
+            for filename in  filenames:
                 create_unique_sequences(filename, k)
+            non_target_progress.update(i+1)
         # Step 5: Print the remaining k-mers in the seedmer dictionary
-        print("Unique k-mers in seedmer:", len(seedmer))
+        print('*********************************')
+        print("Unique k-mers in seedmer:", seedmer)
+        print("Length of new seedmer",len(seedmer))

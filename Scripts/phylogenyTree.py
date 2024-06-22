@@ -36,4 +36,8 @@ class PhylogenyTree:
         return graph
 
     def get_filenames(self,graph,tax_id):
-        return graph.nodes[tax_id]['filenames']
+        # Check if the taxid node has the 'filenames' attribute
+        if 'filenames' in graph.nodes[tax_id]:
+            return graph.nodes[tax_id]['filenames']
+        else:
+            return None
