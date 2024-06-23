@@ -1,13 +1,14 @@
-from tqdm import tqdm
-import progressbar
+from dotenv import load_dotenv
+import progressbar,os
 from pymongo import MongoClient
 from .seedmerCreation import create_seedmer
 from .seedmer_data import seedmer
 from .operationKmer import create_unique_sequences
 
+load_dotenv()
 class NoSql:
     def __init__(self, mongodb_uri):
-        self.mongodb_uri = mongodb_uri
+        self.mongodb_uri = os.getenv('MONGO_URI')
 
     def connect_to_database(self, database_name):
         client = MongoClient(self.mongodb_uri)
