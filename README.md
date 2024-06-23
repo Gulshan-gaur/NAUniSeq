@@ -86,7 +86,7 @@ docker tag gaurgulshan/nauniseq:latest nauniseq:latest
 To run the NoSQL method, execute the following command:
 Please refer to the individual script files for more detailed comments and explanations of the code.
 ```
-docker run --network="host" $(pwd)/test_data:/app/test_data -it nauniseq python main.py no-sql --mongodb-uri 'mongodb://localhost:27017/' --taxid 485 --k 100
+docker run --network="host" -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py no-sql --mongodb-uri 'mongodb://localhost:27017/' --taxid 485 --k 100
 
 ```
 #### 4. Phylogeny Analysis
