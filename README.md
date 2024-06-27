@@ -50,14 +50,11 @@ In test_data folder
 - taxadb.csv: CSV file containing taxonomy data.
 - refseq.csv: CSV file containing reference sequence data.
 - ng_url.txt: Text file containing FTP links for genome sequences of Neisseria Gonorrhea. 
-Use the provided parallel command to download the multiple files and this command has to run in test_data folder. ***(This is only works in Ubuntu)***
-```
-parallel -j 4 wget < ng_url.txt
-cd ..
-```
-##### 4 is number of process you can choose acc. to your need.
 
-### Add data to mongoDb database
+#### Note : you need to download the test_data folder from [here](https://labs4research-my.sharepoint.com/:u:/g/personal/gaurgulshan_sigmamind_xyz/EVkEVSi35GRNo0H0dnSweKgBu2oLssvdwoVgZk12UvOIew?e=YyXkfc) it is in zip, replace this test_data folder after unzip with test_data.
+
+
+### Add data to mongoDb database (if you want to run nosql method)
 Make sure you have MongoDb installed on your system.
 ```
 #install the pymongo and pandas with pip
