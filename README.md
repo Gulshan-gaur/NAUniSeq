@@ -34,6 +34,7 @@ For the present study we have used a desktop system with configurations: Intel c
 This repository contains code for analyzing phylogenetic data using a combination of network analysis, seedmer creation, and unique sequence generation. The code is implemented in Python and utilizes various libraries for data processing and analysis.
 
 ## Usage
+#### Note : Run all the command in ubuntu to save yourself from any error.
 
 ### Clone this repo
 ```
@@ -55,7 +56,7 @@ In test_data folder
 
 
 ### Add data to mongoDb database (if you want to run nosql method)
-Make sure you have MongoDb installed on your system.
+Make sure you have MongoDb installed on your system and start the service before running.
 ```
 #install the pymongo and pandas with pip
 !pip install pymongo pandas
