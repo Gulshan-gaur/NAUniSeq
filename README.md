@@ -51,8 +51,10 @@ In test_data folder
 - taxadb.csv: CSV file containing taxonomy data.
 - refseq.csv: CSV file containing reference sequence data.
 - ng_url.txt: Text file containing FTP links for genome sequences of Neisseria Gonorrhea. 
+- genome files in compress gzip for Neisseria gonorrhoeae and it's adjcent neighbours or child it has 783 files of Neisseria gonorrhoeae and 87 for child or neighbours
 
 #### Note : you need to download the test_data folder from [here](https://labs4research-my.sharepoint.com/:u:/g/personal/gaurgulshan_sigmamind_xyz/EVkEVSi35GRNo0H0dnSweKgBu2oLssvdwoVgZk12UvOIew?e=YyXkfc) it is in zip, replace this test_data folder after unzip with test_data.
+
 
 
 ### Add data to mongoDb database (if you want to run nosql method)
