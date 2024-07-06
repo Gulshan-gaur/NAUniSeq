@@ -95,7 +95,7 @@ To run the phylogeny analysis method, execute the following command:
 docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py phylogeny --taxadb-csv 'taxa_db.csv' --refseq-csv 'refseq.csv' --taxid 485 --k 100
 
 ```
-##### We have analyzed the results from the positive and negative databases using local BLAST with clinical isolates. For the calculation of sensitivity and specificity, we consider those sequences that align with the query sequences (which are unique sequences) and have an alignment percentage of 98% to 100%. This rigorous criterion ensures that only high-confidence matches are taken into account. By focusing on these stringent alignment thresholds, we ensure accurate assessment of our nucleotide markers' performance.
+##### We have analyzed the results from the positive and negative databases using local BLAST with clinical isolates. For the calculation of sensitivity and specificity, we consider those sequences that align with the query sequences (which are unique sequences) and have an alignment percentage of 98% to 100%. This rigorous criterion ensures that only high-confidence matches are taken into account. By focusing on these stringent alignment thresholds, we ensure accurate assessment of our nucleotide markers' performance. you can find more explaination [here](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/blast.md)
 
 ### Sensitivity and Specificity Table
 
