@@ -96,7 +96,7 @@ docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py phylog
 
 ```
 ### Sensitivity and Specificity Calculation : 
-#### We have analyzed the results from the positive and negative databases using local BLAST with clinical isolates. For the calculation of sensitivity and specificity, we consider those sequences that align with the query sequences (Unique sequences from out method NOSql and Phylogeny) (which are unique sequences) and have an alignment percentage of 98% to 100%. This rigorous criterion ensures that only high-confidence matches are taken into account. By focusing on these stringent alignment thresholds, we ensure accurate assessment of our nucleotide markers' performance. you can find more explaination [here](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/blast.md)
+#### We have analyzed the results from the positive and negative databases using local BLAST with clinical isolates. For the calculation of sensitivity and specificity, we consider those sequences that align with the query sequences (Unique sequences from our method NOSql and Phylogeny) (which are unique sequences) and have an alignment percentage of 98% to 100%. This rigorous criterion ensures that only high-confidence matches are taken into account. By focusing on these stringent alignment thresholds, we ensure accurate assessment of our nucleotide markers' performance. you can find more explaination [here](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/blast.md)
 
 ### Sensitivity and Specificity Table
 
