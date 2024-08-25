@@ -61,7 +61,7 @@ In test_data folder
 Make sure you have MongoDb installed on your system and start the service before running.
 ```
 #install the pymongo and pandas with pip
-!pip install pymongo pandas
+pip install pymongo pandas
 ```
 Run the insert_refseq_to_mongodb.py to add refseq data to your local instance of mongodb
 ```
