@@ -34,7 +34,6 @@ For the present study we have used a desktop system with configurations: Intel c
 This repository contains code for analyzing phylogenetic data using a combination of network analysis, seedmer creation, and unique sequence generation. The code is implemented in Python and utilizes various libraries for data processing and analysis.
 
 ## Usage
-#### Note : Run all the command in ubuntu to save yourself from any error.
 
 ### Clone this repo
 ```
@@ -45,6 +44,7 @@ git clone https://github.com/Gulshan-gaur/NAUniSeq.git
 ```
 cd $(pwd)/NAUniSeq/test_data
 ```
+### *for windows 'pwd' command wont work so replace with full path to navigate*
 ### Test Data
 In test_data folder
 
@@ -59,8 +59,12 @@ In test_data folder
 
 ### Add data to mongoDb database (if you want to run nosql method)
 Make sure you have MongoDb installed on your system and start the service before running.
+#### Moves you up to previous level
 ```
-#install the pymongo and pandas with pip
+cd ..
+```
+#### install the pymongo and pandas with pip
+```
 pip install pymongo pandas
 ```
 Run the insert_refseq_to_mongodb.py to add refseq data to your local instance of mongodb
@@ -82,6 +86,7 @@ docker pull gaurgulshan/nauniseq:latest
 ```
 docker tag gaurgulshan/nauniseq:latest nauniseq:latest
 ```
+
 #### 3. NoSQL Method
 To run the NoSQL method, execute the following command:
 Please refer to the individual script files for more detailed comments and explanations of the code.
