@@ -89,11 +89,20 @@ Please refer to the individual script files for more detailed comments and expla
 docker run --network="host" -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py no-sql --mongodb-uri 'mongodb://localhost:27017/' --taxid 485 --k 100
 
 ```
+For windows you need to replace with full path of the folder.
+```
+docker run --network="host" -v C:/Users/YourUsername/Documents/NAuniseq/test_data:/app/test_data -it nauniseq python main.py no-sql --mongodb-uri "mongodb://localhost:27017/" --taxid 485 --k 100
+
+```
 #### 4. Phylogeny Analysis
 To run the phylogeny analysis method, execute the following command:
 ```
 docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py phylogeny --taxadb-csv 'taxa_db.csv' --refseq-csv 'refseq.csv' --taxid 485 --k 100
 
+```
+For windows you need to replace with full path of the folder.
+```
+docker run -v C:/Users/YourUsername/Documents/NAuniseq/test_data/test_data:/app/test_data -it nauniseq python main.py phylogeny --taxadb-csv 'taxa_db.csv' --refseq-csv 'refseq.csv' --taxid 485 --k 100
 ```
 ### Sensitivity and Specificity Calculation : 
 #### We have analyzed the results from the positive and negative databases using local BLAST with clinical isolates. For the calculation of sensitivity and specificity, we consider those sequences that align with the query sequences (Unique sequences from our method NOSql and Phylogeny) (which are unique sequences) and have an alignment percentage of 98% to 100%. This rigorous criterion ensures that only high-confidence matches are taken into account. By focusing on these stringent alignment thresholds, we ensure accurate assessment of our nucleotide markers' performance. you can find more explaination [here](https://github.com/Gulshan-gaur/NAUniSeq/blob/main/blast.md)
