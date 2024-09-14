@@ -105,7 +105,7 @@ To run the phylogeny analysis method, execute the following command:
 docker run -v $(pwd)/test_data:/app/test_data -it nauniseq python main.py phylogeny --taxadb-csv 'taxa_db.csv' --refseq-csv 'refseq.csv' --taxid 485 --k 100
 
 ```
-For windows you need to replace with full path of the folder.
+For windows you need to replace with full path of the folder rnn the command in powershell.
 ```
 docker run -v C:/Users/YourUsername/Documents/NAuniseq/test_data/test_data:/app/test_data -it nauniseq python main.py phylogeny --taxadb-csv 'taxa_db.csv' --refseq-csv 'refseq.csv' --taxid 485 --k 100
 ```
