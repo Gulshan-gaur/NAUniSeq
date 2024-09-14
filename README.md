@@ -44,7 +44,7 @@ git clone https://github.com/Gulshan-gaur/NAUniSeq.git
 ```
 cd $(pwd)/NAUniSeq/test_data
 ```
-### *for windows 'pwd' command wont work so replace with full path to navigate*
+### *for windows 'pwd' command won't work so replace with full path to navigate*
 ### Test Data
 In test_data folder
 
