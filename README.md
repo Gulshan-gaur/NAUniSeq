@@ -32,6 +32,7 @@ For the present study we have used a desktop system with configurations: Intel c
 # Phylogeny Analysis Code Repository
 
 This repository contains code for analyzing phylogenetic data using a combination of network analysis, seedmer creation, and unique sequence generation. The code is implemented in Python and utilizes various libraries for data processing and analysis.
+### *Ensure Docker and Mongodb services are running and For windows user, run the docker commad in Powershell as Admin*
 
 ## Usage
 
